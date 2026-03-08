@@ -1,21 +1,16 @@
+//Using tabulation method
 class Solution {
 public:
-    int helper(int n,vector<int>&dp){
-        if(n<0){
-            return 0;
-        }
-        if(n==0){
-            return 1;
-        }
-        if(dp[n]!=-1){
-            return dp[n];
-        }
-        int fs=helper(n-1,dp);
-        int ss= helper(n-2,dp);
-        return dp[n]=fs+ss;
-    }
+   
     int climbStairs(int n) {
         vector<int>dp(n+1,-1);
-       return helper(n,dp);
+       dp[0]={1};
+       int ss=0;
+       for(int i=1;i<=n;i++){
+        int fs=dp[i-1];
+       if(i>1)  ss=dp[i-2];
+       dp[i]=fs+ss;
+       }
+       return dp[n];
     }
 };
