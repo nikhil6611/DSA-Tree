@@ -32,7 +32,7 @@ public:
                 auto curr = q.front();
                 q.pop();
 
-                long long idx = curr.second - offset; // ⭐ added
+                long long idx = curr.second - offset; 
 
                 if(curr.first->left)
                     q.push({curr.first->left, 2*idx+1});
